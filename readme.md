@@ -19,18 +19,8 @@ wherein an `ofxTSP::Journey` is defined as:
 
 ```c++
 	struct Journey {
-		Journey(uint16_t start, uint16_t end) {
-			this->start = start;
-			this->end = end;
-		}
 		uint16_t start;
 		uint16_t end;
-		bool operator<(const Journey & other) const {
-			return this->asInt32() < other.asInt32();
-		}
-		uint32_t asInt32() const {
-			return start << 16 + end;
-		}
 	};
 ```
 

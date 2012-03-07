@@ -1,4 +1,4 @@
-<img src="https://raw.github.com/elliotwoods/ofxTSP/master/screenshot.png />
+<img src="https://github.com/elliotwoods/ofxTSP/raw/master/screenshot.png" />
 
 # Introduction
 

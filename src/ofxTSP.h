@@ -8,5 +8,7 @@
 //
 // Anyway, can keep a consistent problem / solver format between now and then
 
-#include "ofxTSP/Solver.h"
 #include "ofxTSP/Problem.h"
+#include "ofxTSP/Solver.h"
+
+#include "ofxTSP/BruteForce.h"

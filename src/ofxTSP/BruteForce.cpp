@@ -15,8 +15,10 @@ namespace ofxTSP {
 		map<vector<int>, float>::const_iterator it;
 		map<vector<int>, float>::const_iterator solution;
 		for (it = solutions.begin(); it != solutions.end(); it++) {
-			if (it->second < best)
+			if (it->second < best) {
 				solution = it;
+				best = it->second;
+			}
 		}
 		return solution->first;
 	}
@@ -40,9 +42,22 @@ namespace ofxTSP {
 
 		for (int i=0; i<problem.destinationCount; i++) {
 			if (!hasVisited(i, visited)) {
+
 				vector<int> visitBranch = visited;
 				visitBranch.push_back(i);
-				step(problem, visited, distance + problem.distance[Journey(visited.back(), i)]);
+
+				if (visitBranch.size() == 1) {
+					//this is our start location
+					step(problem, visitBranch, 0);
+				} else
+				//check if journey exists
+				if (problem.distance.count(Journey(visited.back(), i)))
+					step(problem, visitBranch, distance + problem.distance.at(Journey(visited.back(), i)));
+				else if (problem.distance.count(Journey(visited.back(), i)))
+					step(problem, visitBranch, distance + problem.distance.at(Journey(i, visited.back())));
+				else
+					//no journey found
+					continue;
 			}
 		}
 	}

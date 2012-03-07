@@ -1,3 +1,5 @@
+<img src="https://raw.github.com/elliotwoods/ofxTSP/master/screenshot.png />
+
 # Introduction
 
 The Travelling Salesman Problem is a computational problem of finding the 'shortest route' between a set of nodes
@@ -24,7 +26,7 @@ wherein an `ofxTSP::Journey` is defined as:
 	};
 ```
 
-Then apply an `ofxTSP::Solver` using the function:
+Then apply a `ofxTSP::Solver` using the function:
 
 
 ```c++

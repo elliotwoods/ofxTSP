@@ -3,37 +3,8 @@
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\testApp.cpp" />
-    <ClCompile Include="..\src\ofxTSP\BruteForce.cpp">
-      <Filter>ofxTSP\src\ofxTSP</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\testApp.h" />
-    <ClInclude Include="..\src\ofxTSP\BruteForce.h">
-      <Filter>ofxTSP\src\ofxTSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ofxTSP\Problem.h">
-      <Filter>ofxTSP\src\ofxTSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ofxTSP\Solver.h">
-      <Filter>ofxTSP\src\ofxTSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ofxTSP.h">
-      <Filter>ofxTSP\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ofxTSP\Journey.h">
-      <Filter>ofxTSP\src\ofxTSP</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="ofxTSP">
-      <UniqueIdentifier>{68f1fe7a-2149-4476-9d72-027c6dd0f817}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ofxTSP\src">
-      <UniqueIdentifier>{82106f47-a098-4ef7-88b9-70570ac9bae3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ofxTSP\src\ofxTSP">
-      <UniqueIdentifier>{aa15d228-a912-4bf6-a869-c04358a07aca}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
 </Project>

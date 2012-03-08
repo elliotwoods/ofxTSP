@@ -2,13 +2,10 @@
 namespace ofxTSP {
 	//---------
 	vector<int> BruteForce::solve(const Problem & problem) {
-		//presume no assymetry
-
-		uint32_t problemSize = problem.distance.size();
-
 		this->solutions.clear();
 		vector<int> visited;
 		step(problem, visited, 0);
+		ofLogNotice("ofxTSP::BruteForce") << "Found " << solutions.size() << " possible routes (assymetric).";
 
 		float best = std::numeric_limits<float>::infinity();
 		
@@ -17,7 +14,7 @@ namespace ofxTSP {
 		for (it = solutions.begin(); it != solutions.end(); it++) {
 			if (it->second < best) {
 				solution = it;
-				best = it->second;
+				best = solution->second;
 			}
 		}
 		return solution->first;
@@ -34,13 +31,14 @@ namespace ofxTSP {
 	}
 
 	//---------
-	void BruteForce::step(const Problem & problem, vector<int> visited, float distance) {
-		if (visited.size() == problem.destinationCount) {
+	void BruteForce::step(const Problem & problem, vector<int> visited, float runningCost) {
+		if (visited.size() == problem.nodeCount) {
 			//we've visited all destinations, add to possible solutions
-			solutions.insert(pair<vector<int>, float>(visited, distance));
+			solutions.insert(pair<vector<int>, float>(visited, runningCost));
+			return;
 		}
 
-		for (int i=0; i<problem.destinationCount; i++) {
+		for (int i=0; i<problem.nodeCount; i++) {
 			if (!hasVisited(i, visited)) {
 
 				vector<int> visitBranch = visited;
@@ -49,15 +47,15 @@ namespace ofxTSP {
 				if (visitBranch.size() == 1) {
 					//this is our start location
 					step(problem, visitBranch, 0);
-				} else
-				//check if journey exists
-				if (problem.distance.count(Journey(visited.back(), i)))
-					step(problem, visitBranch, distance + problem.distance.at(Journey(visited.back(), i)));
-				else if (problem.distance.count(Journey(visited.back(), i)))
-					step(problem, visitBranch, distance + problem.distance.at(Journey(i, visited.back())));
-				else
-					//no journey found
-					continue;
+				} else {
+					float cost = problem.getSymmetricCost(Journey(visited.back(), i));
+					if (cost != -1) {
+						step(problem, visitBranch, cost + runningCost);
+					} else {
+						//no journey found
+						continue;
+					}
+				}
 			}
 		}
 	}

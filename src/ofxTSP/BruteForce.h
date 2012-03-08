@@ -18,5 +18,7 @@ namespace ofxTSP {
 	protected:
 		void step(const Problem & problem, vector<int> visited, float runningCost);
 		map<vector<int> , float> solutions;
+		vector<int> bestSolution;
+		float bestCost;
 	};
 }

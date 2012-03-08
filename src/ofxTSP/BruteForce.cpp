@@ -4,20 +4,11 @@ namespace ofxTSP {
 	vector<int> BruteForce::solve(const Problem & problem) {
 		this->solutions.clear();
 		vector<int> visited;
+		this->bestCost = std::numeric_limits<float>::infinity();
 		step(problem, visited, 0);
-		ofLogNotice("ofxTSP::BruteForce") << "Found " << solutions.size() << " possible routes (assymetric).";
+		ofLogNotice("ofxTSP::BruteForce") << "Traversed " << solutions.size() << " possible routes (assymetric).";
 
-		float best = std::numeric_limits<float>::infinity();
-		
-		map<vector<int>, float>::const_iterator it;
-		map<vector<int>, float>::const_iterator solution;
-		for (it = solutions.begin(); it != solutions.end(); it++) {
-			if (it->second < best) {
-				solution = it;
-				best = solution->second;
-			}
-		}
-		return solution->first;
+		return this->bestSolution;
 	}
 
 	//---------
@@ -32,16 +23,24 @@ namespace ofxTSP {
 
 	//---------
 	void BruteForce::step(const Problem & problem, vector<int> visited, float runningCost) {
+		//check whether we're already losing. If so don't continue to step down this branch
+		if (runningCost > bestCost)
+			return;
+
 		if (visited.size() == problem.nodeCount) {
-			//we've visited all destinations, add to possible solutions
-			solutions.insert(pair<vector<int>, float>(visited, runningCost));
+			//we've visited all destinations
+			//if we're better let's add this solution
+			if(runningCost < bestCost) {
+				bestSolution = visited;
+				bestCost = runningCost;
+			}
 			return;
 		}
 
 		for (int i=0; i<problem.nodeCount; i++) {
 			if (!hasVisited(i, visited)) {
 
-				vector<int> visitBranch = visited;
+				vector<int> visitBranch(visited);
 				visitBranch.push_back(i);
 
 				if (visitBranch.size() == 1) {

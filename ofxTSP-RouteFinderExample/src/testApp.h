@@ -4,7 +4,7 @@
 
 #include "ofxTSP.h"
 
-#define COUNT 8
+#define COUNT 7
 #define WIDTH 600
 using namespace ofxTSP;
 
@@ -17,10 +17,11 @@ public:
 	
 	void keyPressed  (int key);
 	void solve();
+	void defineJourneys();
+	void solve(int routeTo);
 
 	vector<ofVec2f> positions;
 
 	ofxTSP::Problem problem;
-	ofxTSP::BruteForce solver;
-	vector<int> solvedRoute;
+	vector<vector<int> > solvedRoutes;
 };

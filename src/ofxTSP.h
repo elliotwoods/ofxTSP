@@ -12,3 +12,4 @@
 #include "ofxTSP/Solver.h"
 
 #include "ofxTSP/BruteForce.h"
+#include "ofxTSP/RouteFind.h"

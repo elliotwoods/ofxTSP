@@ -14,7 +14,11 @@ namespace ofxTSP {
 	public:
 		RouteFind(int start, int end);
 		vector<int> solve(const Problem & problem);
+		float getCost() { return this->bestCost; }
 	protected:
+		void step(const Problem & problem, vector<int> visited, float runningCost);
 		int start, end;
+		vector<int> bestSolution;
+		float bestCost;
 	};
 };

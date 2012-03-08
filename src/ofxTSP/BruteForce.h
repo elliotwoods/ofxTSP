@@ -14,11 +14,10 @@ namespace ofxTSP {
 	**/
 	class BruteForce : public Solver {
 	public:
-		vector<int> solve(const Problem & problem);
+		Route solve(const Problem & problem);
 	protected:
-		void step(const Problem & problem, vector<int> visited, float runningCost);
-		map<vector<int> , float> solutions;
-		vector<int> bestSolution;
-		float bestCost;
+		void step(const Problem & problem, Route visited);
+		map<Route , float> solutions;
+		Route bestSolution;
 	};
 }

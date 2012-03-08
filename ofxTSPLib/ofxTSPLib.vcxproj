@@ -19,6 +19,7 @@
     <ClInclude Include="..\src\ofxTSP\BruteForce.h" />
     <ClInclude Include="..\src\ofxTSP\Journey.h" />
     <ClInclude Include="..\src\ofxTSP\Problem.h" />
+    <ClInclude Include="..\src\ofxTSP\Route.h" />
     <ClInclude Include="..\src\ofxTSP\RouteFind.h" />
     <ClInclude Include="..\src\ofxTSP\Solver.h" />
   </ItemGroup>
@@ -26,6 +27,7 @@
     <ClCompile Include="..\src\ofxTSP\BruteForce.cpp" />
     <ClCompile Include="..\src\ofxTSP\Journey.cpp" />
     <ClCompile Include="..\src\ofxTSP\Problem.cpp" />
+    <ClCompile Include="..\src\ofxTSP\Route.cpp" />
     <ClCompile Include="..\src\ofxTSP\RouteFind.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

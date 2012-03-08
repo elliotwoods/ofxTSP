@@ -48,7 +48,7 @@ void testApp::draw(){
 
 	ofSetColor(255);
 	ofDrawBitmapString("[SPACE] to re-solve", 10, 10);
-	ofDrawBitmapString("Finding shortest routes from node 0 to all other nodes", 10, 25);
+	ofDrawBitmapString("Finding shortest routes from node 0 to all other nodes (noise has been added to the distances to add non-trivial solutions)", 10, 25);
 }
 
 //--------------------------------------------------------------
@@ -90,11 +90,5 @@ void testApp::solve(int routeTo) {
 	this->solvedRoutes.push_back(routeFinder.solve(problem));
 	cout << "done." << endl;
 
-	cout << "Route from 0 to " << routeTo << ": [";
-	for (int i=0; i<this->solvedRoutes.back().size(); i++) {
-		if (i != 0)
-			cout << ", ";
-		cout << this->solvedRoutes.back()[i];
-	}
-	cout << "], cost " << routeFinder.getCost() << endl;
+	cout << "Route from 0 to " << routeTo << ": " << this->solvedRoutes.back() << endl;
 }

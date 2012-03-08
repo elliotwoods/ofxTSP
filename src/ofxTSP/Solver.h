@@ -1,5 +1,7 @@
 #pragma once
 #include "ofxTSP/Problem.h"
+#include "ofxTSP/Route.h"
+
 #include <vector>
 
 using namespace std;
@@ -9,6 +11,6 @@ namespace ofxTSP {
 	**/
 	class Solver {
 	public:
-		virtual vector<int> solve(const Problem & problem) = 0;
+		virtual Route solve(const Problem & problem) = 0;
 	};
 }

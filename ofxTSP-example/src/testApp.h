@@ -22,5 +22,5 @@ public:
 
 	ofxTSP::Problem problem;
 	ofxTSP::BruteForce solver;
-	vector<int> solvedRoute;
+	ofxTSP::Route solvedRoute; //inherits vector<int>
 };

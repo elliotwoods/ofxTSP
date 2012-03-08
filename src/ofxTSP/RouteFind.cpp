@@ -8,9 +8,9 @@ namespace ofxTSP {
 	}
 
 	//---------
-	vector<int> RouteFind::solve(const Problem & problem) {
-		this->bestCost = std::numeric_limits<float>::infinity();
-		this->step(problem, vector<int>(1, this->start), 0);
+	Route RouteFind::solve(const Problem & problem) {
+		this->bestSolution.cost = std::numeric_limits<float>::infinity();
+		this->step(problem, vector<int>(1, this->start));
 		return bestSolution;
 	}
 
@@ -25,14 +25,13 @@ namespace ofxTSP {
 	}
 
 	//---------
-	void RouteFind::step(const Problem & problem, vector<int> visited, float runningCost) {
-		if (runningCost > bestCost)
+	void RouteFind::step(const Problem & problem, Route visited) {
+		if (visited.cost > this->bestSolution.cost)
 			return;
 
 		if (visited.back() == this->end) {
-			if (runningCost < this->bestCost) {
+			if (visited.cost < this->bestSolution.cost) {
 				this->bestSolution = visited;
-				this->bestCost = runningCost;
 			}
 			return;
 		}
@@ -43,9 +42,9 @@ namespace ofxTSP {
 				if (cost == -1)
 					continue;
 				else {
-					vector<int> visitBranch(visited);
-					visitBranch.push_back(i);
-					step(problem, visitBranch, runningCost + cost);
+					Route visitBranch(visited);
+					visitBranch.addStep(i, cost);
+					step(problem, visitBranch);
 				}
 			}
 		}

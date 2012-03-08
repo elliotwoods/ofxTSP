@@ -62,11 +62,5 @@ void testApp::solve() {
 	this->solvedRoute = solver.solve(problem);
 	cout << "done." << endl;
 
-	cout << "Route : [";
-	for (int i=0; i<this->solvedRoute.size(); i++) {
-		if (i != 0)
-			cout << ", ";
-		cout << this->solvedRoute[i];
-	}
-	cout << "]" << endl;
+	cout << "Route : " << this->solvedRoute << endl;
 }

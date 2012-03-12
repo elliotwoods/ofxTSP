@@ -24,7 +24,7 @@ void testApp::draw(){
 		position = positions[solvedRoute[i]];
 		ofVertex(position.x, position.y);
 		ofCircle(position.x, position.y, 10);
-		ofDrawBitmapString(ofToString(solvedRoute[i]), position.x, position.y);
+		ofDrawBitmapString(ofToString(solvedRoute[i]), position.x-3, position.y+5);
 	}
 	ofEndShape(false);
 

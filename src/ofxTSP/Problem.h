@@ -31,6 +31,8 @@ namespace ofxTSP {
 		-1
 		**/
 		float getSymmetricCost(Journey & journey) const;
+
+		void clear();
 	};
 
 	typedef map<Journey, float>::const_iterator constCostIterator;

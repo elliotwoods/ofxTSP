@@ -122,7 +122,7 @@ if not exist "$(ProjectDir)\bin\data" mkdir  "$(ProjectDir)\bin\data"
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\ofxTSPLib\ofxTSPLib.vcxproj">
-      <Project>{c48b2ccf-fa1d-405a-8362-b516399d7013}</Project>
+      <Project>{7e77475e-1341-47ce-9bee-8064d17a36d2}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

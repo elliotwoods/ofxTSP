@@ -31,7 +31,7 @@
     <ClCompile Include="..\src\ofxTSP\RouteFind.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C48B2CCF-FA1D-405A-8362-B516399D7013}</ProjectGuid>
+    <ProjectGuid>{7E77475E-1341-47CE-9BEE-8064D17A36D2}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>ofxUeyeLib</RootNamespace>
   </PropertyGroup>

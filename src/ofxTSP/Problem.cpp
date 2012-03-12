@@ -27,4 +27,10 @@ namespace ofxTSP {
 			}
 		}
 	}
+
+	//---------
+	void Problem::clear() {
+		this->cost.clear();
+		this->nodeCount = 0;
+	}
 }

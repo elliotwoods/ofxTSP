@@ -10,7 +10,7 @@ namespace ofxTSP {
 	//---------
 	Route RouteFind::solve(const Problem & problem) {
 		this->bestSolution.cost = std::numeric_limits<float>::infinity();
-		this->step(problem, vector<int>(1, this->start));
+		this->step(problem, Route(vector<int>(1, this->start), 0.0f) );
 		return bestSolution;
 	}
 

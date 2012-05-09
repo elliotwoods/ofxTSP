@@ -10,7 +10,7 @@ namespace ofxTSP {
 	class Route : public vector<int> {
 	public:
 		Route();
-		Route(const vector<int> & vector);
+		Route(const vector<int> & vector, float cost);
 		void addStep(int destination, float stepCost);
 
 		friend ostream& operator<<(ostream& os, const Route& route);

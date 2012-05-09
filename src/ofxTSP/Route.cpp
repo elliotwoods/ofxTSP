@@ -7,9 +7,9 @@ namespace ofxTSP {
 	}
 
 	//---------
-	Route::Route(const vector<int> & vector) {
+	Route::Route(const vector<int> & vector, float cost) {
 		this->assign(vector.begin(), vector.end());
-		this->cost = 0.0f;
+		this->cost = cost;
 	}
 
 	//---------

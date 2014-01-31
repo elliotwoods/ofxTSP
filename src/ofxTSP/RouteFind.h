@@ -1,5 +1,5 @@
 #pragma once
-#include "ofxTSP/Solver.h"
+#include "Solver.h"
 
 namespace ofxTSP {
 	//strictly NOT a TSP solver

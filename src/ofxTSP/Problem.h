@@ -1,5 +1,5 @@
 #pragma once
-#include "ofxTSP/Journey.h"
+#include "Journey.h"
 
 #include <vector>
 #include <map>

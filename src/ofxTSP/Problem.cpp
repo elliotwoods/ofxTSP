@@ -1,4 +1,4 @@
-#include "ofxTSP/Problem.h"
+#include "Problem.h"
 
 namespace ofxTSP {
 	//---------

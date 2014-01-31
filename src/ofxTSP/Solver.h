@@ -1,6 +1,6 @@
 #pragma once
-#include "ofxTSP/Problem.h"
-#include "ofxTSP/Route.h"
+#include "Problem.h"
+#include "Route.h"
 
 #include <vector>
 

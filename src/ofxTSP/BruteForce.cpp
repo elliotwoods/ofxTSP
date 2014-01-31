@@ -1,4 +1,4 @@
-#include "ofxTSP/BruteForce.h"
+#include "BruteForce.h"
 namespace ofxTSP {
 	//---------
 	Route BruteForce::solve(const Problem & problem) {

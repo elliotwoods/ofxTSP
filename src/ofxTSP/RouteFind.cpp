@@ -15,7 +15,7 @@ namespace ofxTSP {
 	}
 
 	//---------
-	bool hasVisited(int i, const vector<int> & visited) {
+	bool RouteFind::hasVisited(int i, const vector<int> & visited) {
 		vector<int>::const_iterator it;
 		for (it = visited.begin(); it != visited.end(); it++) {
 			if (*it == i)
@@ -38,7 +38,8 @@ namespace ofxTSP {
 
 		for (int i=0; i<problem.nodeCount; i++) {
 			if (!hasVisited(i, visited)) {
-				float cost = problem.getSymmetricCost(Journey(visited.back(), i));
+				Journey j(visited.back(), i);
+				float cost = problem.getSymmetricCost(j);
 				if (cost == -1)
 					continue;
 				else {
